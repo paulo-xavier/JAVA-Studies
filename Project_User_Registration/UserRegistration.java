@@ -16,11 +16,11 @@ import java.util.Scanner;
 
 public class UserRegistration {
 
-    static String[] users = new String[10];
-    static int[] ages = new int[10];
+    static String[] users = new String[3];
+    static int[] ages = new int[3];
 
     static int totalUsers = 0;
-    
+
     static Scanner myObj = new Scanner(System.in);
 
     public static void menu() {
@@ -38,26 +38,36 @@ public class UserRegistration {
             int op = myObj.nextInt();
 
             switch (op) {
-                
-                case 1: 
-                    System.out.println("Please, enter the name: ");
-                    String name = myObj.next();
 
-                    System.out.println("Enter the age...");
-                    int age = myObj.nextInt();
+                case 1:
 
-                    boolean result = registerUserAndAge(name, age);
+                    boolean isPossibleRegistration = checkIsPossibleToRegister();
 
-                    if (result) {
-                        System.out.println("USER REGISTERED!!");
+                    if (isPossibleRegistration) {
+                        
+                        System.out.println("Please, enter the name: ");
+                        String name = myObj.next();
+
+                        System.out.println("Enter the age...");
+                        int age = myObj.nextInt();
+
+                        boolean result = registerUserAndAge(name, age);
+
+                        if (result) {
+                            System.out.println("USER REGISTERED!!");
+                        } else {
+                            System.out.println("USER NOT REGISTERED! TRY AGAIN LATER...");
+                        }
+
                     } else {
-                        System.out.println("USER NOT REGISTERED! TRY AGAIN LATER...");
+                        System.out.println("Sorry! We do not have available space to register new user!");
                     }
-                    break;
 
-                case 2: 
-                    listUsersAndAge();
                     break; 
+
+                case 2:
+                    listUsersAndAge();
+                    break;
 
                 default:
                     System.out.println("Invalid option! Restarting the application...");
@@ -66,11 +76,20 @@ public class UserRegistration {
         }
     }
 
+    public static boolean checkIsPossibleToRegister() {
+        if (totalUsers == 3) {
+            return false;
+
+        } else {
+            return true;
+        }
+    }
+
     public static boolean registerUserAndAge(String name, int age) {
         users[totalUsers] = name;
         ages[totalUsers] = age;
         totalUsers++;
-        return true; 
+        return true;
     }
 
     public static void listUsersAndAge() {
@@ -79,9 +98,9 @@ public class UserRegistration {
 
         for (int i = 0; i < users.length; i++) {
 
-            if (users[i] == null){
+            if (users[i] == null) {
                 continue;
-            
+
             } else {
                 System.out.println("Username:" + users[i] + " | Age: " + ages[i]);
             }

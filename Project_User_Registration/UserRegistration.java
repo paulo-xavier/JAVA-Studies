@@ -44,7 +44,7 @@ public class UserRegistration {
                     boolean isPossibleRegistration = checkIsPossibleToRegister();
 
                     if (isPossibleRegistration) {
-                        
+
                         System.out.println("Please, enter the name: ");
                         String name = myObj.next();
 
@@ -63,25 +63,22 @@ public class UserRegistration {
                         System.out.println("Sorry! We do not have available space to register new user!");
                     }
 
-                    break; 
+                    break;
 
                 case 2:
                     listUsersAndAge();
                     break;
 
+                case 3:
+                    System.out.println("Inform the user to search..."); 
+                    String name = myObj.next(); 
+                    searchUser(name);
+                    break; 
+
                 default:
                     System.out.println("Invalid option! Restarting the application...");
             }
 
-        }
-    }
-
-    public static boolean checkIsPossibleToRegister() {
-        if (totalUsers == 3) {
-            return false;
-
-        } else {
-            return true;
         }
     }
 
@@ -96,14 +93,39 @@ public class UserRegistration {
 
         System.out.println("======== USERS ========");
 
-        for (int i = 0; i < users.length; i++) {
-
-            if (users[i] == null) {
-                continue;
-
-            } else {
+        for (int i = 0; i < totalUsers; i++) {
                 System.out.println("Username:" + users[i] + " | Age: " + ages[i]);
+        }
+    }
+
+    public static void searchUser(String name) {
+        
+        boolean found = false; 
+
+        for (int i = 0; i < totalUsers; i++){
+            
+            if (users[i].equalsIgnoreCase(name)){
+                System.out.println("User found!! Information below: "); 
+                System.out.println();
+                System.out.println("Username:" + users[i] + " | Age: " + ages[i]); 
+                found = true; 
             }
+        }
+
+        if (!found){
+            System.out.println("USER NOT FOUND!!"); 
+        }
+    }
+
+    public static boolean checkIsPossibleToRegister() {
+
+        if (totalUsers == 3) {
+            
+            return false;
+
+        } else {
+            
+            return true;
         }
     }
 

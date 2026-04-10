@@ -11,6 +11,7 @@ Desafio:
 
 Criar um menu tipo:
 
+1 - Cadastrar usuário
 2 - Listar usuários
 3 - Buscar usuário
 4 - Sair

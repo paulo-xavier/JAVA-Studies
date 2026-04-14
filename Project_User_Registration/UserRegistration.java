@@ -6,7 +6,9 @@ Criar um menu tipo:
 1 - Cadastrar usuário
 2 - Listar usuários
 3 - Buscar usuário
-4 - Sair
+4 - Atualizar usuário
+5 - Remover usuário
+0 - Sair
 
 Armazenar nome e idade em arrays
 Limitar quantidade (ex: 100 usuários)
@@ -31,6 +33,7 @@ public class UserRegistration {
             System.out.println("1. Register user");
             System.out.println("2. List Users");
             System.out.println("3. Search User");
+            System.out.println("4. Update User");
             System.out.println("0. Exit");
 
             System.out.println();
@@ -70,9 +73,24 @@ public class UserRegistration {
                     break;
 
                 case 3:
-                    System.out.println("Inform the user to search..."); 
-                    String name = myObj.next(); 
+                    System.out.println("Inform the user to search...");
+                    String name = myObj.next();
                     searchUser(name);
+                    break;
+
+                case 4:
+                    System.out.println("Inform the user to search...");
+                    name = myObj.next();
+
+                    boolean userExists = searchUser(name);
+
+                    if (userExists) {
+                        int userIndex = returnUserIndex(name);
+                        updateUserInformation(userIndex);
+                    } else {
+                        System.out.println("ERROR! This user doesn't exist.");
+                    }
+
                     break; 
 
                 default:
@@ -94,39 +112,71 @@ public class UserRegistration {
         System.out.println("======== USERS ========");
 
         for (int i = 0; i < totalUsers; i++) {
-                System.out.println("Username:" + users[i] + " | Age: " + ages[i]);
+            System.out.println("Username:" + users[i] + " | Age: " + ages[i]);
         }
     }
 
-    public static void searchUser(String name) {
-        
-        boolean found = false; 
+    public static boolean searchUser(String name) {
 
-        for (int i = 0; i < totalUsers; i++){
-            
-            if (users[i].equalsIgnoreCase(name)){
-                System.out.println("User found!! Information below: "); 
+        boolean found = false;
+
+        for (int i = 0; i < totalUsers; i++) {
+
+            if (users[i].equalsIgnoreCase(name)) {
+                System.out.println("User found!! Information below: ");
                 System.out.println();
-                System.out.println("Username:" + users[i] + " | Age: " + ages[i]); 
-                found = true; 
+                System.out.println("Username:" + users[i] + " | Age: " + ages[i]);
+                found = true;
             }
         }
 
-        if (!found){
-            System.out.println("USER NOT FOUND!!"); 
+        if (!found) {
+            System.out.println("USER NOT FOUND!!");
+            return false;
         }
+
+        return true;
     }
 
     public static boolean checkIsPossibleToRegister() {
 
         if (totalUsers == 3) {
-            
+
             return false;
 
         } else {
-            
+
             return true;
         }
+    }
+
+    // findindex(name)
+
+    public static int returnUserIndex(String name) {
+
+        int userIndex = -1;
+
+        for (int i = 0; i < totalUsers; i++) {
+            if (users[i].equalsIgnoreCase(name)) {
+                userIndex = i;
+            }
+        }
+
+        return userIndex;
+    }
+
+    public static void updateUserInformation(int userIndex) {
+
+        System.out.println("Please, enter the name: ");
+        String name = myObj.next();
+
+        System.out.println("Enter the age...");
+        int age = myObj.nextInt();
+
+        users[userIndex] = name; 
+        ages[userIndex] = age; 
+
+        System.out.println("INFORMATION UPDATED!!");
     }
 
     public static void main(String[] args) {

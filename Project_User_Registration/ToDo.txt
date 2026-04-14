@@ -4,3 +4,4 @@
 
 
 - Doc no Notion sobre comparação de String (Equals())
+- Doc no Notion sobre Arrays manuais e variáveis de controle (TotalUsers);

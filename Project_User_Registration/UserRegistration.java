@@ -14,6 +14,21 @@ Armazenar nome e idade em arrays
 Limitar quantidade (ex: 100 usuários)
 */
 
+/*
+
+NOMES
+[0] = "Y"
+[1] = "X" --> i + 1 
+[2] = "z"
+
+IDADES
+
+
+totalUsers--
+
+
+*/
+
 import java.util.Scanner;
 
 public class UserRegistration {
@@ -34,6 +49,7 @@ public class UserRegistration {
             System.out.println("2. List Users");
             System.out.println("3. Search User");
             System.out.println("4. Update User");
+            System.out.println("5. Delete User");
             System.out.println("0. Exit");
 
             System.out.println();
@@ -89,6 +105,19 @@ public class UserRegistration {
                         updateUserInformation(userIndex);
                     } else {
                         System.out.println("ERROR! This user doesn't exist.");
+                    }
+
+                    break;
+
+                case 5:
+                    System.out.println("Inform the user to search...");
+                    name = myObj.next();
+
+                    userExists = searchUser(name);
+
+                    if (userExists) {
+                        int userIndex = returnUserIndex(name);
+                        deleteUser(userIndex);
                     }
 
                     break; 
@@ -150,8 +179,6 @@ public class UserRegistration {
         }
     }
 
-    // findindex(name)
-
     public static int returnUserIndex(String name) {
 
         int userIndex = -1;
@@ -173,10 +200,34 @@ public class UserRegistration {
         System.out.println("Enter the age...");
         int age = myObj.nextInt();
 
-        users[userIndex] = name; 
-        ages[userIndex] = age; 
+        users[userIndex] = name;
+        ages[userIndex] = age;
 
         System.out.println("INFORMATION UPDATED!!");
+    }
+
+    public static void deleteUser(int userIndex){
+        // User Index = 1
+        
+        // NOMES 
+        // [0] = "Y"
+        // [1] = "X" --> i + 1 
+        // [2] = "z"
+        // [3] = "y"
+        // [4] = "maria"
+
+        // NOMES 
+        // [0] = "Y" - --> i + 1
+
+        
+        for (int i = userIndex; i < totalUsers - 1; i++){
+            users[i] = users[i + 1];
+            ages[i] = ages[i + 1]; 
+        }
+
+        totalUsers--;
+
+        System.out.println("USER REMOVED!!");         
     }
 
     public static void main(String[] args) {

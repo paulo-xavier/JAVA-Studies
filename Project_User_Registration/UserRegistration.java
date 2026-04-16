@@ -128,6 +128,12 @@ public class UserRegistration {
 
                     break;
 
+                case 0: 
+                    System.out.print("\033[H\033[2J"); // Cleaning terminal
+                    System.out.flush(); // Cleaning terminal
+                    System.out.println("Closing program..."); 
+                    return; 
+
                 default:
                     System.out.println("Invalid option! Restarting the application...");
             }

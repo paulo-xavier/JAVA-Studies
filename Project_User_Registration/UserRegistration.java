@@ -14,21 +14,6 @@ Armazenar nome e idade em arrays
 Limitar quantidade (ex: 100 usuários)
 */
 
-/*
-
-NOMES
-[0] = "Y"
-[1] = "X" --> i + 1 
-[2] = "z"
-
-IDADES
-
-
-totalUsers--
-
-
-*/
-
 import java.util.Scanner;
 
 public class UserRegistration {
@@ -60,6 +45,9 @@ public class UserRegistration {
 
                 case 1:
 
+                    System.out.print("\033[H\033[2J"); // Cleaning terminal
+                    System.out.flush(); // Cleaning terminal
+
                     boolean isPossibleRegistration = checkIsPossibleToRegister();
 
                     if (isPossibleRegistration) {
@@ -74,27 +62,40 @@ public class UserRegistration {
 
                         if (result) {
                             System.out.println("USER REGISTERED!!");
+                            System.out.println();
                         } else {
                             System.out.println("USER NOT REGISTERED! TRY AGAIN LATER...");
+                            System.out.println();
                         }
 
                     } else {
                         System.out.println("Sorry! We do not have available space to register new user!");
+                        System.out.println();
                     }
 
                     break;
 
                 case 2:
+                    System.out.print("\033[H\033[2J"); // Cleaning terminal
+                    System.out.flush(); // Cleaning terminal
+
                     listUsersAndAge();
                     break;
 
                 case 3:
-                    System.out.println("Inform the user to search...");
+                    System.out.print("\033[H\033[2J"); // Cleaning terminal
+                    System.out.flush(); // Cleaning terminal
+
+                    System.out.println("Inform the user to search...");                    
                     String name = myObj.next();
                     searchUser(name);
                     break;
 
                 case 4:
+
+                    System.out.print("\033[H\033[2J"); // Cleaning terminal
+                    System.out.flush(); // Cleaning terminal
+
                     System.out.println("Inform the user to search...");
                     name = myObj.next();
 
@@ -110,6 +111,10 @@ public class UserRegistration {
                     break;
 
                 case 5:
+
+                    System.out.print("\033[H\033[2J"); // Cleaning terminal
+                    System.out.flush(); // Cleaning terminal
+
                     System.out.println("Inform the user to search...");
                     name = myObj.next();
 
@@ -120,7 +125,7 @@ public class UserRegistration {
                         deleteUser(userIndex);
                     }
 
-                    break; 
+                    break;
 
                 default:
                     System.out.println("Invalid option! Restarting the application...");
@@ -143,6 +148,8 @@ public class UserRegistration {
         for (int i = 0; i < totalUsers; i++) {
             System.out.println("Username:" + users[i] + " | Age: " + ages[i]);
         }
+
+        System.out.println();
     }
 
     public static boolean searchUser(String name) {
@@ -163,6 +170,8 @@ public class UserRegistration {
             System.out.println("USER NOT FOUND!!");
             return false;
         }
+
+        System.out.println();
 
         return true;
     }
@@ -204,30 +213,33 @@ public class UserRegistration {
         ages[userIndex] = age;
 
         System.out.println("INFORMATION UPDATED!!");
+
+        System.out.println();
     }
 
-    public static void deleteUser(int userIndex){
+    public static void deleteUser(int userIndex) {
         // User Index = 1
-        
-        // NOMES 
+
+        // NOMES
         // [0] = "Y"
-        // [1] = "X" --> i + 1 
+        // [1] = "X" --> i + 1
         // [2] = "z"
         // [3] = "y"
         // [4] = "maria"
 
-        // NOMES 
+        // NOMES
         // [0] = "Y" - --> i + 1
 
-        
-        for (int i = userIndex; i < totalUsers - 1; i++){
+        for (int i = userIndex; i < totalUsers - 1; i++) {
             users[i] = users[i + 1];
-            ages[i] = ages[i + 1]; 
+            ages[i] = ages[i + 1];
         }
 
         totalUsers--;
 
-        System.out.println("USER REMOVED!!");         
+        System.out.println("USER REMOVED!!");
+
+        System.out.println();
     }
 
     public static void main(String[] args) {

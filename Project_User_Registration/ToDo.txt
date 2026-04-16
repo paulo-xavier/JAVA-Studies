@@ -2,6 +2,4 @@
     - Programa só está aceitando entradas que não possuam espaço como separador entre os nomes; 
 
 
-
-- Doc no Notion sobre comparação de String (Equals())
 - Doc no Notion sobre Arrays manuais e variáveis de controle (TotalUsers);

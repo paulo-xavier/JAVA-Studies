@@ -39,7 +39,8 @@ public class UserRegistration {
 
             System.out.println();
 
-            int op = myObj.nextInt();
+            // int op = myObj.nextInt();
+            int op = Integer.parseInt(myObj.nextLine()); 
 
             switch (op) {
 
@@ -87,7 +88,7 @@ public class UserRegistration {
                     System.out.flush(); // Cleaning terminal
 
                     System.out.println("Inform the user to search...");                    
-                    String name = myObj.next();
+                    String name = myObj.nextLine();
                     searchUser(name);
                     break;
 
@@ -97,7 +98,7 @@ public class UserRegistration {
                     System.out.flush(); // Cleaning terminal
 
                     System.out.println("Inform the user to search...");
-                    name = myObj.next();
+                    name = myObj.nextLine();
 
                     boolean userExists = searchUser(name);
 
@@ -116,7 +117,7 @@ public class UserRegistration {
                     System.out.flush(); // Cleaning terminal
 
                     System.out.println("Inform the user to search...");
-                    name = myObj.next();
+                    name = myObj.nextLine();
 
                     userExists = searchUser(name);
 

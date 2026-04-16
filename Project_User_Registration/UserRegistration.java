@@ -53,10 +53,10 @@ public class UserRegistration {
                     if (isPossibleRegistration) {
 
                         System.out.println("Please, enter the name: ");
-                        String name = myObj.next();
+                        String name = myObj.nextLine();
 
                         System.out.println("Enter the age...");
-                        int age = myObj.nextInt();
+                        int age = Integer.parseInt(myObj.nextLine());
 
                         boolean result = registerUserAndAge(name, age);
 
@@ -204,11 +204,11 @@ public class UserRegistration {
     public static void updateUserInformation(int userIndex) {
 
         System.out.println("Please, enter the name: ");
-        String name = myObj.next();
+        String name = myObj.nextLine();
 
         System.out.println("Enter the age...");
-        int age = myObj.nextInt();
-
+        int age = Integer.parseInt(myObj.nextLine());
+        
         users[userIndex] = name;
         ages[userIndex] = age;
 

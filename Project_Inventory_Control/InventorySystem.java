@@ -49,6 +49,8 @@ public class InventorySystem {
                     break;
 
                 case 2:
+                    listProducts();
+                    break; 
 
             }
         }
@@ -57,6 +59,16 @@ public class InventorySystem {
 
     public static void listProducts() {
         
+        System.out.println("PRODUCTS INVENTORY");
+
+        for (int i = 0; i < totalProducts; i++) {
+            System.out.printf(
+                "PRODUCT |  %s \n" +
+                "QUANTITY | %d \n" + 
+                "PRICE | %f \n", 
+                products[i], quantity[i], price[i]
+            );
+        }
     }
 
     public static boolean registerProduct(String productName, int productQuantity, float productPrice) {

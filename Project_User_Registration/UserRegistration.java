@@ -185,7 +185,7 @@ public class UserRegistration {
 
     public static boolean checkIsPossibleToRegister() {
 
-        if (totalUsers == 3) {
+        if (totalUsers == users.length) {
 
             return false;
 

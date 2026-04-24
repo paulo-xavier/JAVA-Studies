@@ -46,30 +46,70 @@ public class InventorySystem {
                         System.out.println("Product not registered! TRY AGAIN...");
                     }
 
+                    cleaningTerminal();
                     break;
 
-                case 2:
+                case 2: 
+                    cleaningTerminal();
                     listProducts();
-                    break; 
+                    break;
 
+                case 3:
+                    cleaningTerminal();
+                    
+                    System.out.println("Enter the product search");
+                    productName = myObj.nextLine();
+
+                    int productIndex = searchProductIndex(productName); 
+
+                    if (productIndex != -1){
+                        System.out.println("PRODUCT FOUND!!");
+                        System.out.println("Product information below:");
+                        listProductInfo(productIndex);
+                    } else {
+                        System.out.println("PRODUCT NOT FOUND!!!");
+                    }
             }
         }
     }
 
+    public static int searchProductIndex(String productName) {
+
+        int productIndex = -1;
+
+        for (int i = 0; i < totalProducts; i++) {
+            if (products[i].equalsIgnoreCase(productName)) {
+                productIndex = i;
+            }
+        }
+
+        return productIndex;
+    }
 
     public static void listProducts() {
-        
+
         System.out.println("PRODUCTS INVENTORY");
 
         for (int i = 0; i < totalProducts; i++) {
+
+            System.out.println(); 
+
             System.out.printf(
-                "PRODUCT |  %s \n" +
-                "QUANTITY | %d \n" + 
-                "PRICE | %f \n", 
-                products[i], quantity[i], price[i]
-            );
+                    "PRODUCT |  %s \n" +
+                            "QUANTITY | %d \n" +
+                            "PRICE | %f \n",
+                    products[i], quantity[i], price[i]);
         }
     }
+
+    public static void listProductInfo(int index){
+        System.out.printf(
+                    "PRODUCT |  %s \n" +
+                            "QUANTITY | %d \n" +
+                            "PRICE | %f \n",
+                    products[index], quantity[index], price[index]);
+        }
+
 
     public static boolean registerProduct(String productName, int productQuantity, float productPrice) {
 
@@ -93,6 +133,11 @@ public class InventorySystem {
         } else {
             return true; // Possible
         }
+    }
+
+    public static void cleaningTerminal() {
+        System.out.print("\033[H\033[2J"); // Cleaning terminal
+        System.out.flush(); // Cleaning terminal
     }
 
     public static void main(String[] args) {

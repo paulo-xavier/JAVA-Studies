@@ -40,3 +40,10 @@ Add quantity to an existing product
 Rules:
     - Product must exist
     - Quantity > 0   
+
+### 5. Product Stock-out 
+Remove quantity to an existing product 
+
+Rules:
+    - Product must exist
+    - Not allow negative stock   

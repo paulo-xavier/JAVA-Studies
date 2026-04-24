@@ -95,6 +95,34 @@ public class InventorySystem {
                     } else {
                         System.out.println("PRODUCT NOT FOUND!!!");
                     }
+
+                    break; 
+
+                case 5:
+                    System.out.println("Enter the product to search..."); 
+                    productName = myObj.nextLine(); 
+
+                    productIndex = searchProductIndex(productName); 
+
+                    if (productIndex != -1) {
+
+                        System.out.println("Enter the quantity to be removed from stock");
+                       
+                        int quantityRemoved = Integer.parseInt(myObj.nextLine()); 
+                        int currentQuantity = searchProductQuantity(productIndex); 
+
+                        if ((currentQuantity - quantityRemoved) < 0) {
+                            System.out.println("INVALID value to remove! NOT ENOUGH STOCK");
+                        } else {
+                            removeQuantityToProduct(productIndex, quantityRemoved);
+                        }
+
+                        
+
+
+                    } else {
+                        System.out.println("PRODUCT NOT FOUND!!");
+                    }
             }
         }
     }
@@ -123,6 +151,13 @@ public class InventorySystem {
         quantity[index] += quantityAdded;
         
         System.out.println("QUANTITY ADDED TO THE PRODUCT!!");
+    }
+    
+    public static void removeQuantityToProduct(int index, int quantityRemoved){
+        
+        quantity[index] -= quantityRemoved;
+        
+        System.out.println("QUANTITY REMOVED TO THE PRODUCT!!");
     }
 
 

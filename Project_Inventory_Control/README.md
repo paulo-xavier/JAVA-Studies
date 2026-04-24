@@ -27,3 +27,16 @@ The system must works using a menu with:
 5. Stock-out (product)
 6. Almost out-of-stock products
 0. EXIT
+
+## Details about each option 
+
+### 1. Register product
+### 2. List products
+### 3. Search product 
+
+### 4. Product Stock-in 
+Add quantity to an existing product 
+
+Rules:
+    - Product must exist
+    - Quantity > 0   

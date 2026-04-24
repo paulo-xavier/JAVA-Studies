@@ -69,6 +69,32 @@ public class InventorySystem {
                     } else {
                         System.out.println("PRODUCT NOT FOUND!!!");
                     }
+
+                break; 
+
+                case 4: 
+                    System.out.println("Enter the product to search..."); 
+                    productName = myObj.nextLine(); 
+
+                    productIndex = searchProductIndex(productName); 
+
+                    if(productIndex != -1) {
+
+                        System.out.println("Enter the quantity to be added"); 
+                        int quantityAdded = Integer.parseInt(myObj.nextLine()); 
+
+                        if (quantityAdded <= 0){
+                            System.out.println("INVALID!!");
+                        
+                        } else {
+                            //Adding quantity to product
+                            addQuantityToProduct(productIndex, quantityAdded);
+                        }
+                        
+
+                    } else {
+                        System.out.println("PRODUCT NOT FOUND!!!");
+                    }
             }
         }
     }
@@ -85,6 +111,20 @@ public class InventorySystem {
 
         return productIndex;
     }
+
+
+    public static int searchProductQuantity(int index) {
+        
+        return quantity[index];  
+    }
+
+    public static void addQuantityToProduct(int index, int quantityAdded){
+        
+        quantity[index] += quantityAdded;
+        
+        System.out.println("QUANTITY ADDED TO THE PRODUCT!!");
+    }
+
 
     public static void listProducts() {
 

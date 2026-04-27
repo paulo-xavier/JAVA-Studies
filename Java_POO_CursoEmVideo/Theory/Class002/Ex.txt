@@ -1,0 +1,109 @@
+Class Cellphone
+
+Characteristics:
+		- Dimensions
+		- Screen resolution
+		- Camera quantity
+		- Color type
+		- Model
+		- Brand or manufacturer
+		- Operating System (Android or iOS)
+		- New or old?
+		
+Methods
+		- takePicture();
+		- recordVideo();
+		- turnOn();
+		- turnOff(); 
+		- openApp(); 
+		- checkDateAndTime(); 
+		
+Status
+		- Screen resolution = 2400x1080
+		- Camera quantity = 4 cameras
+		- Color type = aqua
+		- Model = Moto G56
+		- Brand = Motorola
+		- Operating System - Android
+		- New  cellphone
+		
+		
+------------------------------------------------------------------------------
+
+Class Bag
+
+Characteristics:
+		- Color
+		- Type (Gym, Day-to-day, women or men)
+		- Fabric (Cotton (Algodão), Silk (Seda) , Wool (Lã) , Linen (Linho) , Denim (Jeans) ) 
+		- Number of pockets
+		- New or Old?
+		- Size
+		- Manufacturer
+
+Methods 
+		- insert products()
+		- remove products()
+		- hang up the bag ()
+
+Status:
+		- The bag contains a lot of products inside
+		- It's a cotton bag 
+		- The color is black 
+		- It's a new bag 
+		- 3 pockets
+		- Medium size
+		
+		
+------------------------------------------------------------------------------
+
+Class Running 
+
+Characteristics:
+			- Location
+			- Date and time
+			- Kilometers 
+			- Rewards (Trophy, medals, shirts)
+			- Rules (Requirements, values, number of subscriptions allowed)
+			
+Methods: 
+			- warmUp()
+			- Wear the clothes and chip()
+			- Start the running()
+			- Finish the running(); 
+			- give the trophy(); 
+			- Give the medals(); 
+	
+Status:
+		- Scheduled race
+		- 10km
+		- Tomorrow (April 27)
+		- 100 subscriptions
+		- Location is in São Leopoldo (Rio Grande do Sul)
+		
+------------------------------------------------------------------------------
+
+Class Going to the Gym 
+
+Characteristcs: 
+			- Location of the gym
+			- Time to Go
+			- Clothes
+			- Taking shower in the gym 
+			- Organize the backpack
+			- Which muscle to exercise
+Methods:
+			- Start the training()
+			- Take dumbells()
+			- To do the exercise()
+			- Switch exercise()
+			- To organize the clothes()
+			- to stop training()
+			- Take a shower()
+			- Define target muscle()
+Status
+		- Training at SmartFit
+		- Training at 6AM
+		- Wearing basic sport clothes
+		- Taking shower in the gym
+		- Training legs and core to improve running skills

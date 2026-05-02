@@ -22,11 +22,17 @@ public class Car {
     }
 
     public void toAccelerate(int value){
-        this.speed += value; 
+        if (this.isOn == false){
+            System.out.println("ERROR! The car is off...");
+        } else {
+            this.speed += value; 
+        }
     }
 
     public void toBreak(int value){
-        if (this.speed <= 0){
+        if(this.isOn == false){
+            System.out.println("ERROR! The car is off...");  
+        } else if (this.speed <= 0){
             System.out.println("The car is already stopped!");
             this.speed = 0; 
         } else {

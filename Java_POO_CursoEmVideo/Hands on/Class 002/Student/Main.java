@@ -4,26 +4,26 @@ public class Main {
 
         a.grades = new float[4];
 
-        a.toSetName("Maria Helena Xavier"); 
-        a.toSetAge(23);
+        a.setName("Maria Helena Xavier");
+        a.setAge(23);
 
         a.addGrades(5);
         a.addGrades(20);
         a.addGrades(15);
         a.addGrades(20);
 
-        a.toShowGrades();
+        a.showGrades();
 
-        System.out.println("Average: " + a.toCalculateAverage());
+        System.out.println("Average: " + a.calculateAverage());
 
-        a.toCheckApproval(a.toCalculateAverage());
+        a.checkApproval();
 
         System.out.println("\n=========\n");
 
         Student b = new Student();
 
-        b.toSetName("Paulo Roberto Xavier");
-        b.toSetAge(21);
+        b.setName("Paulo Roberto Xavier");
+        b.setAge(21);
 
         b.grades = new float[3];
 
@@ -31,16 +31,21 @@ public class Main {
         b.addGrades(2);
         b.addGrades(3);
 
-        b.toShowGrades();
+        b.showGrades();
 
-        System.out.println("Average: " + b.toCalculateAverage());
+        System.out.println("Average: " + b.calculateAverage());
 
-        b.toCheckApproval(b.toCalculateAverage());
+        b.checkApproval();
 
         System.out.println("\n=========\n");
 
-        b.toGenerateReport();
-        a.toGenerateReport();
+        b.generateReport();
+        a.generateReport();
+
+        System.out.println("\n=========\n");
+
+        Student c = new Student();
+        System.out.println(c.calculateAverage());
 
     }
 }

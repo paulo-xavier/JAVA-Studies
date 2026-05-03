@@ -6,30 +6,38 @@ public class Student {
     boolean isApproved;
 
     public void addGrades(float grade) {
-        this.grades[totalGrades] = grade;
-        totalGrades++;
+
+        if(totalGrades == this.grades.length){
+            System.out.println("You do not have space to insert more grades!");
+        } else {
+            this.grades[totalGrades] = grade;
+            totalGrades++;
+        }
     }
 
-    public void toShowGrades() {
+    public void showGrades() {
         for (int i = 0; i < this.totalGrades; i++) {
             System.out.printf("Grade %d: %.2f \n", i + 1, this.grades[i]);
         }
     }
 
-    public float toCalculateAverage() {
-        int gradesSum = 0;
+    public float calculateAverage() {
+        float gradesSum = 0;
         int gradesQuantity = this.totalGrades;
 
         for (int i = 0; i < this.totalGrades; i++) {
             gradesSum += this.grades[i];
         }
 
-        int average = gradesSum / gradesQuantity;
+        float average = gradesSum / gradesQuantity;
 
         return average;
     }
 
-    public void toCheckApproval(float average) {
+    public void checkApproval() {
+        
+        float average = this.calculateAverage(); 
+
         if (average >= 7) {
             System.out.println("APPROVED!");
             this.isApproved = true; 
@@ -39,7 +47,7 @@ public class Student {
         }
     }
 
-    public void toGenerateReport() {
+    public void generateReport() {
         System.out.println("\n==== STUDENT INFORMATION ====\n");
         System.out.printf("| Name: %s |\n", this.name);
         System.out.printf("| Age: %d |\n", this.age);
@@ -51,11 +59,11 @@ public class Student {
         System.out.printf("| Is approved?  %b |", this.isApproved);
     }
 
-    public void toSetName(String name){
+    public void setName(String name){
         this.name = name; 
     }
 
-    public void toSetAge(int age){
+    public void setAge(int age){
         this.age = age; 
     }
 }

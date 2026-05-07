@@ -8,12 +8,16 @@ private boolean turnedOn;
 private int channel;
 
 Methods
+
 Turn TV on/off
 public void turnOn()
 public void turnOff()
 Change volume
 public void increaseVolume()
 public void decreaseVolume()
+
+
+
 
 Rules:
 
@@ -39,5 +43,5 @@ Extra Challenge
 
 Try preventing:
 
-changing volume while TV is OFF
+changing volume while TV is OFF (X)
 changing channels while TV is OFF

@@ -1,33 +1,75 @@
-public class SmartTv{
-    public String brand; 
-    private int volume; 
-    private boolean turnedOn; 
-    private int channel; 
+public class SmartTv {
+    public String brand;
+    private int volume;
+    private boolean turnedOn;
+    private int channel;
 
-    public void showStatus(){}
-
-    public void turnOn(){
-        this.turnedOn = true; 
+    public void showStatus() {
     }
 
-    public void turnOff(){
-        this.turnedOn = false; 
+    public void turnOn() {
+        this.turnedOn = true;
+    }
+
+    public void turnOff() {
+        this.turnedOn = false;
     }
 
     public void changeVolume(int finalVolume) {
-        if(this.turnedOn == false){
+        if (this.turnedOn == false) {
             System.out.println("Failed to set volume! The TV is off...");
-        } else if(finalVolume > 100 || finalVolume < 0){
+        } else if (finalVolume > 100 || finalVolume < 0) {
             System.out.println("ERROR! Please enter a value between 0 and 100");
         } else {
-            this.volume = finalVolume; 
+            this.volume = finalVolume;
             System.out.println("VOLUME SUCCESSFULLY CHANGED!!");
         }
     }
 
-    public void increaseVolume(){}
+    public void increaseVolume() {
 
-    public void decreaseVolume(){}
+        if (this.turnedOn == false) {
 
+            System.out.println("TV is OFF! Please, turn it on first. ");
 
+        } else {
+
+            if (this.volume == 100) {
+                System.out.println("Volume is on max!!");
+            } else {
+                this.volume++;
+                if (this.volume > 100) {
+                    this.volume = 100;
+                    System.out.println("Volume: " + this.volume);
+                }
+            }
+
+        }
+
+    }
+
+    public void decreaseVolume() {
+
+        if (this.turnedOn == false) {
+            
+            System.out.println("TV is OFF! Please, turn it on first. ");
+
+        } else {
+
+            if (this.volume == 0) {
+                System.out.println("Volume is already on minimum - 0% ");
+            } else {
+                this.volume--;
+                
+                if (this.volume < 0) {
+                    this.volume = 0;
+                }
+            }
+        }
+
+    }
+
+    public void changeChannel() {
+
+    }
 }

@@ -43,9 +43,7 @@ public class SmartTv {
                     System.out.println("Volume: " + this.volume);
                 }
             }
-
         }
-
     }
 
     public void decreaseVolume() {
@@ -66,10 +64,23 @@ public class SmartTv {
                 }
             }
         }
-
     }
 
-    public void changeChannel() {
+    public void changeChannel(int newChannel) {
+        if(this.turnedOn == false){
+            
+            System.out.println("ERROR! Please, turn on the TV first.");
+        
+        } else {
+            this.channel = newChannel; 
+        }
+    }
 
+    public void nextChannel(){
+        this.channel++; 
+    }
+
+    public void previousChannel(){
+        this.channel--; 
     }
 }

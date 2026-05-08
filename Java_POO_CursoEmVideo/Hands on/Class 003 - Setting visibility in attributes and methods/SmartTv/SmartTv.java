@@ -5,6 +5,11 @@ public class SmartTv {
     private int channel;
 
     public void showStatus() {
+
+        System.out.println("Brand: " + this.brand);
+        System.out.println("Volume: " + this.volume);
+        System.out.println("Current channel: " + this.channel);
+        System.out.println("TV is ON? " + this.turnedOn);
     }
 
     public void turnOn() {
@@ -81,6 +86,10 @@ public class SmartTv {
     }
 
     public void previousChannel(){
-        this.channel--; 
+        if (this.channel == 0){
+            return; 
+        } else{
+            this.channel--; 
+        }
     }
 }

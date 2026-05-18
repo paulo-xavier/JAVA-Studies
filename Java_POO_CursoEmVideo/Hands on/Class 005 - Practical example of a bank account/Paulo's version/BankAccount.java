@@ -23,6 +23,38 @@ public class BankAccount {
         setBalance(0 );
     }
 
+    public void activateAccount(){
+        
+        if(this.status){
+            
+            System.out.println("The account is already opened!!");
+        
+        } else {
+            
+            this.status = true; 
+
+            if(this.getAccountType() == BankAccountType.CHECKING){
+
+                // Deposit R$50 as reward
+                this.deposit(50); 
+
+            } else { //SAVING
+                
+                // Deposit R$150 
+                this.deposit(150);
+            }
+        }
+    }
+
+    public void deposit(float value){
+        if (this.status){
+            
+            this.balance+=value; 
+        } else {
+            System.out.println("Account must be ACTIVE to deposit a value!!!");
+        }
+    }
+
     public int getAccountNumber() {
         return this.accountNumber;
     }
